@@ -31,7 +31,7 @@ class RegistrationForm extends React.Component{
   };
 
   render () {
-    const {handleSubmit, submitting, auth, authClear} = this.props;
+    const {handleSubmit, submitting, auth, clearAuthForm} = this.props;
     const {error} = auth;
     const formInputClasses = {
       container: styles.inputContainer,
@@ -43,7 +43,7 @@ class RegistrationForm extends React.Component{
     return (
       <div className={ styles.signUpFormContainer }>
         { error && <Error data={ error.data } status={ error.status }
-                          clearError={ authClear }/> }
+                          clearError={ clearAuthForm }/> }
 
         <form onSubmit={ handleSubmit(this.clicked) }>
           <div className={ styles.row }>
