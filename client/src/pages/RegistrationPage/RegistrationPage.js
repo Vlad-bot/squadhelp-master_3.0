@@ -14,10 +14,6 @@ const faqElem = require("lodash");
 const RegistrationPage = (props) => {
   props.clearError();
 
-  const changeRoute = () => {
-    props.history.replace('/');
-  };
-
 
   return (
     <div className={ styles.signUpPage }>
