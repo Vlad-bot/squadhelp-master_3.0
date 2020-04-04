@@ -19,8 +19,8 @@ class RegistrationForm extends React.Component{
     this.props.authClear();
   }
 
-  clicked = (values) => {
-    this.props.register({
+  handleSubmit  = (values) => {
+    this.props.signUp({
       firstName: values.firstName,
       lastName: values.lastName,
       displayName: values.displayName,
@@ -45,7 +45,7 @@ class RegistrationForm extends React.Component{
         { error && <Error data={ error.data } status={ error.status }
                           clearError={ clearAuthForm }/> }
 
-        <form onSubmit={ handleSubmit(this.clicked) }>
+        <form onSubmit={ handleSubmit(this.handleSubmit) }>
           <div className={ styles.row }>
             <Field
               name='firstName'
@@ -138,7 +138,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => (
   {
-    register: (data) => dispatch(authActionRegister(data)),
+    signUp: (data) => dispatch(authActionRegister(data)),
     authClear: () => dispatch(clearAuth()),
   }
 );

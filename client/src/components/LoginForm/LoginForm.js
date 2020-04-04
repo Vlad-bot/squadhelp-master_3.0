@@ -15,12 +15,12 @@ class LoginForm extends React.Component{
     this.props.authClear();
   }
 
-  clicked = (values) => {
+  handleSubmit = (values) => {
     this.props.loginRequest(values);
   };
 
   render () {
-    const {error, isFetching} = this.props.auth;
+    const { auth: { error, isFetching } } = this.props;
     const {handleSubmit, submitting, authClear} = this.props;
 
     const formInputClasses = {
@@ -36,7 +36,7 @@ class LoginForm extends React.Component{
         { error && <Error data={ error.data } status={ error.status }
                           clearError={ authClear }/> }
         <h2>LOGIN TO YOUR ACCOUNT</h2>
-        <form onSubmit={ handleSubmit(this.clicked) }>
+        <form onSubmit={ handleSubmit(this.handleSubmit) }>
           <Field
             name='email'
             classes={ formInputClasses }
